@@ -1,1 +1,16 @@
-Hello
+Logged in as <%= current_user.name.capitalize %>.
+<br>
+<h1><%= @user.name %>'s Page</h1>
+
+<h2>Created Events</h2>
+<p>list events</p>
+<h2>RSVP'd</h2>
+<p>list events</p>
+<br>
+<%= link_to "Create Event", new_event_path %>
+<br>
+<%= link_to "All Events", events_path %>
+<br>
+<%= link_to "Edit Profile", edit_user_path %>
+<br>
+<%= link_to "Log Out", logout_path %>
