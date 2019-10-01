@@ -1,7 +1,16 @@
 <h1>Event Name: <%= @event.name %></h1>
 
-<h2>Event Date and Time: <%= @event.date %> at <%= @event.time.strftime("%I:%M %p") %> </h2>
+<h2>Event Date and Time: <%= @event.date.strftime("%m/%d/%y") %> at <%= @event.time.strftime("%I:%M %p") %> </h2>
 
 <p>Description: <%= @event.description %></p>
 
 <p>Location: <%= @event.location %></p>
+
+<% if @event.users.count > 0 %>
+    <h4>People Going</h4>
+    <% @event.users.each do |user| %>
+        <p><%= link_to user.name, user %></p>
+    <% end %>
+<% else %>
+    <h4>No one is going</h4>
+<% end %>

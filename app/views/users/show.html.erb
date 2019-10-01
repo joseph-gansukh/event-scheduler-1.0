@@ -1,11 +1,19 @@
-Logged in as <%= current_user.name.capitalize %>.
-<br>
-<h1><%= @user.name %>'s Page</h1>
+<h1><%= @user.name.capitalize %>'s Page</h1>
 
 <h2>Created Events</h2>
 <p>list events</p>
 <h2>RSVP'd</h2>
-<p>list events</p>
+<% if @user.events.count > 0 %>
+  <ul>
+    <% @user.events.each do |event| %>
+    <li><%= link_to event.name, event_path(event) %></li>
+    <% end %>
+  </ul>
+<% else %>
+    <p>You are currently not attending any events, <%= link_to "click here to join events.",  events_path %></p>
+<% end %>
+
+
 <br>
 <%= link_to "Create Event", new_event_path %>
 <br>
