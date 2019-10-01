@@ -34,9 +34,16 @@ class UsersController < ApplicationController
       @user = User.find_by(id: params[:id])
     end
 
-    def add_event
-      
+    def attend_event
+      if logged_in?
+        @user = current_user
+        @user.events << Event.find(params[:event_id])
+        redirect_to @user
+      else
+        redirect_to login_path
+      end
     end
+    
 
     private
 
