@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new', as: 'login'
   post '/attend_event', to: 'users#attend_event', as: 'attend_event'
   get 'logout', to: 'sessions#destroy', as: 'logout'
+  post 'send_friend_request', to: 'users#send_friend_request', as: 'friend_request'
+  post 'accept_friend_request', to: 'users#accept_friend_request', as: 'accept_request'
+  post 'decline_friend_request', to: 'users#decline_friend_request', as: 'decline_request'
+
 end

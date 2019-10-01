@@ -22,3 +22,26 @@
 <%= link_to "Edit Profile", edit_user_path %>
 <br>
 <%= link_to "Log Out", logout_path %>
+
+<br>
+<% if !myself?(@user.id) && !friend?(@user.id)%>
+  <%= button_to "Add Friend", friend_request_path, method: "post", params: {request_id: @user.id} %>
+<% elsif current_user.requested_friends.count > 0 %>
+  <h4>Pending Friend Request</h4>
+  <% current_user.requested_friends.each do |friend| %>
+      <%= link_to friend.name, user_path(friend) %>
+      <%= button_to "Accept", accept_request_path, method: "post", params: {request_id: friend.id} %>
+      <%= button_to "Decline", decline_request_path, method: "post", params: {request_id: friend.id} %>
+  <% end %>
+<% end %>
+
+<p>Friends</p>
+<% if @friends.count > 0 %>
+  <ul>
+    <% @friends.each do |friend| %>
+      <li><%= link_to friend.name, user_path(friend) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No friends</p>
+<% end %>

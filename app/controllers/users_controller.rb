@@ -32,6 +32,7 @@ class UsersController < ApplicationController
 
     def show
       @user = User.find_by(id: params[:id])
+      @friends = @user.friends
     end
 
     def attend_event
@@ -43,6 +44,25 @@ class UsersController < ApplicationController
         redirect_to login_path
       end
     end
+
+    def send_friend_request
+      @user = current_user
+      @user.friend_request(User.find(params[:request_id]))
+      redirect_to @user
+    end
+
+    def accept_friend_request
+      @user = current_user
+      @user.accept_request(User.find(params[:request_id]))
+      redirect_to @user
+    end
+
+    def decline_friend_request
+      @user = current_user
+      @user.decline_request(User.find(params[:request_id]))
+      redirect_to @user
+    end
+
     
 
     private
