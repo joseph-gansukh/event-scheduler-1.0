@@ -1,37 +1,107 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
- /*
 COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
+RED: #B72126
+BLUE: #004687
+GREY: #C0BFBF
 */
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+/****************************
+REUSABLE COMPONENTS
+****************************/
+.btn, .btn a:visited {
+    display: inline-block;
+    color: #000;
+    background-color: #c0bfbf;
+    border-radius: 20px;
+    text-decoration: none;
+    padding: 5px 15px;
+    text-transform: uppercase;
+    width: 200px;
+}
+
+.btn a {
+    text-decoration: none;
+}
+
+.btn-header {
+    text-decoration: none;
+    font-size: 90%;
+    transition: padding 0.4s, font-size 0.4s, background-color 0.4s;
+}
+
+.btn-header:hover, .btn-header:active {
+    text-decoration: none;
+    background-color: #B72126;
+    padding: 10px 25px;
+    font-size: 120%;
+}
+
+#signup-btn:hover {
+    background-color: #004687;
+}
+
+/****************************
+HOME PAGE
+****************************/
+.landing {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 0, 0.4))), url(https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/job14-267-jite-0821.jpg?auto=format&bg=F4F4F3&con=3&cs=srgb&dpr=1&fm=jpg&ixlib=php-3.1.0&mark=rawpixel-watermark.png&markalpha=90&markpad=13&markscale=10&markx=25&q=75&usm=15&vib=3&w=1200&s=ac0ff699b9e5ed0b940fd9114a5cd42d);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/job14-267-jite-0821.jpg?auto=format&bg=F4F4F3&con=3&cs=srgb&dpr=1&fm=jpg&ixlib=php-3.1.0&mark=rawpixel-watermark.png&markalpha=90&markpad=13&markscale=10&markx=25&q=75&usm=15&vib=3&w=1200&s=ac0ff699b9e5ed0b940fd9114a5cd42d);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    background-attachment: fixed;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.hero-text-box {
+    position: absolute;
+    border-radius: 2px;
+    padding: 30px 25px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100vw;
+    height: 275px;
+    text-align: center;
+    top: 55%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+}
+
+.hero-text-box h1 {
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+.hero-text-box h2 {
+    margin-bottom: 35px;
+    font-size: 100%;
+    font-weight: 300;
+}
+
+
+/****************************
+NAVIGATION BAR
+****************************/
 
 .logo {
     float: left;
+    font-size: 140%;
+    padding: 14px 16px;
 }
 
 .logo a {
-    color: #fff;
+    color: #1db954;
     text-transform: uppercase;
     font-weight: bold;
-    padding-left: 20px;
     text-decoration: none;
 }
 
@@ -45,13 +115,13 @@ Dark green: #28b485
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #7ed56f;
+    background-color: #000;
 }
 
 .navbar li {
     float: right;
     display: block;
-    color: #111;
+    color: #1db954;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -59,10 +129,54 @@ Dark green: #28b485
 
 .navbar li a:visited {
     text-decoration: none;
-    color: #fff;
+    color: #1db954;
 }
 
 .navbar li a:hover {
-    color: #111;  
+    color: #fff;  
 }
 
+/****************************
+LOGIN PAGE
+****************************/
+
+.login-landing {
+    position: absolute;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 0, 0.4))), url(https://ak4.picdn.net/shutterstock/videos/4687664/thumb/1.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://ak4.picdn.net/shutterstock/videos/4687664/thumb/1.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 120vh;
+    width: 100vw;
+    background-attachment: fixed;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.join-the-fun {
+    width: 40%;
+    margin: 50px auto;
+    color: #1db954;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 50px;
+    box-shadow: 0px 0px 5px #1db954;
+    min-height: 400px;
+}
+
+.join-head-text {
+    font-size: 320%;
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+.join-the-fun label {
+    font-size: 130%;
+    padding-bottom: 20px;
+}
+
+.join-the-fun input {
+    margin-bottom: 20px;
+    padding: 5px;
+    font-size: 110%;
+}

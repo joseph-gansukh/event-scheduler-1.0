@@ -1,17 +1,20 @@
-<p id="alert"><%= alert %></p>
+<div class="login-landing">
+  <p id="alert"><%= alert %></p>
+  <div class="join-the-fun">
+    <h1 class="join-head-text">Login</h1>
 
-<h1>Login</h1>
-
-<%= form_tag sessions_path do |form| %>
-  <div class="field">
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
+    <%= form_tag sessions_path do |form| %>
+      <div class="field">
+        <%= label_tag :email %> <br>
+        <%= text_field_tag :email %>
+      </div>
+      <div class="field">
+        <%= label_tag :password %> <br>
+        <%= password_field_tag :password %>
+      </div>
+      <div class="actions">
+        <%= submit_tag "Login" %>
+      </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-  </div>
-  <div class="actions">
-    <%= submit_tag "Login" %>
-  </div>
-<% end %>
+</div>
