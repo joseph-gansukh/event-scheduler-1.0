@@ -14,6 +14,22 @@ class UsersController < ApplicationController
       end
     end
 
+    def edit
+      @user = current_user
+    end
+    
+    def update
+      @user = current_user
+      @user.assign_attributes(user_params)
+      if @user.valid?
+        @user.save
+        redirect_to user_path(@user), notice: "You have successfully edited your profile"
+      else
+        flash[:errors] = @user.errors.full_messages
+        redirect_to edit_user_path
+      end
+    end
+
     def show
       @user = User.find_by(id: params[:id])
     end
