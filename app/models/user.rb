@@ -8,4 +8,8 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true, confirmation: true
   validates :email, uniqueness: true
+
+  def created_events
+    Event.all.select {|event| event.creator_id == self.id}
+  end
 end
