@@ -63,8 +63,11 @@ class UsersController < ApplicationController
       redirect_to @user
     end
 
-    
-    
+    def remove_friend
+      @user = current_user
+      @user.remove_friend(User.find(params[:request_id]))
+      redirect_to @user
+    end
 
     private
 

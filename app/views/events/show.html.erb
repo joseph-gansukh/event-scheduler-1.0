@@ -1,3 +1,5 @@
+<div class="filler"></div>
+
 <h1>Event Name: <%= @event.name %></h1>
 
 <h4>Created by: <%= link_to @creator.name.capitalize, user_path(@creator) %></h4>
@@ -7,6 +9,13 @@
 <p>Description: <%= @event.description %></p>
 
 <p>Location: <%= @event.location %></p>
+
+<% if attending_event?(@event.id) %>
+    <p>Attending Event</p>
+    <%= button_to "Leave Event", leave_event_path, method: "post", params:{event_id: @event.id} %>
+<% else %>
+    <%= button_to "Attend Event", attend_event_path, method: "post", params:{event_id: @event.id} %>
+<% end %>
 
 <% if @event.users.count > 0 %>
     <h4>People Going</h4>

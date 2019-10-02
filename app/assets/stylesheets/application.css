@@ -16,6 +16,7 @@ body {
     font-family: 'Barlow';
 }
 
+
 /****************************
 REUSABLE COMPONENTS
 ****************************/
@@ -50,6 +51,16 @@ REUSABLE COMPONENTS
 #signup-btn:hover {
     background-color: #004687;
 }
+
+.filler {
+    height: 60px;
+}
+
+.center {
+    text-align: center;
+}
+
+
 
 /****************************
 HOME PAGE
@@ -123,16 +134,8 @@ NAVIGATION BAR
     width: 100%;
 }
 
-.navbar {
-    z-index: 99;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.7);
-    box-shadow: 0px 0px 3px #000;
-}
 
+  
 .navbar li a {
     display: block;
     text-decoration: none;
@@ -328,3 +331,218 @@ ul.signup-errors {
     list-style-type: none;
     margin-bottom: 20px;
 }
+
+/****************************
+USER SHOW PAGE
+****************************/
+
+.user-heading {
+    display: grid;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+    background-size: cover;
+    min-height: 250px;
+    grid-template-columns: 33% 66%;
+    grid-gap: 10px;
+    padding: 10px;
+    color: #C0BFBF;
+}
+
+.user-heading-left {
+    padding-left: 20px;
+}
+
+.user-name {
+    font-size: 250%;
+    margin-bottom: 10px;
+}
+
+.user-email {
+    font-size: 150%;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.user-heading-right {
+    
+}
+
+.user-bio-label {
+    font-size: 120%;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.user-bio {
+    display: block;
+}
+
+.user-content-grid {
+    display: grid;
+    grid-template-columns: 66% 33%;
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+.user-events {
+
+}
+
+.user-events-heading {
+    padding: 10px;
+    font-size: 200%;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: #004687;
+}
+
+.user-new-event-btn {
+    display: inline;
+    float: right;
+    margin: 10px 25px;
+    background-color: #004687;
+    padding: 10px 35px;
+    border-radius: 5px;
+}
+
+.user-new-event-btn a {
+    text-decoration: none;
+    color: #C0BFBF;
+    transition: margin 0.5s, font-size 0.5s;
+}
+
+.user-new-event-btn a:hover {
+    margin-right: 20px;
+    font-size: 120%;
+}
+
+.user-all-event-btn {
+    display: inline;
+    background-color: #004687;
+    padding: 10px 35px;
+    margin: 10px 25px;
+    border-radius: 5px;
+}
+
+.user-all-event-btn a {
+    text-decoration: none;
+    color: #C0BFBF;
+    transition: margin 0.5s, font-size 0.5s;
+}
+
+.user-all-event-btn a:hover {
+    margin-left: 20px;
+    font-size: 120%;
+}
+
+.event-card {
+    display: flex;
+	max-width: 800px;
+	border-radius: 4px;
+	box-shadow: 0 30px 80px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.event-card-content {
+    background-color: #fff;
+	flex: 1;
+	padding: 35px 30px;
+	display: flex;
+	flex-direction: column;
+}
+
+.event-card-title {
+	display: flex;
+	align-items: center;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.event-card-title-item {
+    padding: 5px 10px;
+}
+
+.item-link a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 110%;
+    color: #B72126;
+}
+
+.item-link a:hover {
+    color: #004687;
+}
+
+.event-card-desc {
+    margin-left: 12px;   
+}
+.card-desc {
+    color:#004687;
+    text-transform: uppercase;
+}
+
+.event-card-footer {
+    text-align: right;
+}
+
+.event-card-footer input {
+    font-size: 110%;
+}
+
+.edit-user-btn a {
+    display: inline-block;
+    border-radius: 10px;
+    padding: 5px 20px;
+    border: 2px solid #C0BFBF;
+    color: #C0BFBF;
+}
+
+.edit-user-btn a:hover {
+    color: #004687;
+    background-color: #C0BFBF;
+}
+
+.edit-user-btn a {
+    text-decoration: none;
+}
+
+.user-friends-heading {
+    border-bottom: 2px solid #000;
+    text-align: center;
+    letter-spacing: 2px;
+    padding: 10px;
+    font-size: 200%;
+    font-weight: 300;
+    color: #004687;
+}
+
+.user-friends {
+    box-shadow: -5px 0 5px #C0BFBF;
+    background-image: linear-gradient(to top right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.0))
+}
+
+.user-friend {
+    list-style-type: none;
+    text-align: left;
+    margin-top: 20px
+}
+
+.user-friend a {
+    text-decoration: none;
+}
+
+.center {
+    margin: 0 auto;
+}
+
+.navbar {
+    z-index: 99;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 0px 3px #000;
+}
+

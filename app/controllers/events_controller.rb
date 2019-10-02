@@ -18,6 +18,7 @@ class EventsController < ApplicationController
     p params
     if @event.save
       flash[:success] = "Event successfully created"
+      current_user.events << @event
       redirect_to @event
     else
       flash[:error] = "Something went wrong"
@@ -49,6 +50,12 @@ class EventsController < ApplicationController
       flash[:error] = 'Something went wrong'
       redirect_to events_url
     end
+  end
+
+  def leave_event
+    @event = Event.find(params[:event_id])
+    current_user.events.delete(@event)
+    redirect_to current_user
   end
   
   private
