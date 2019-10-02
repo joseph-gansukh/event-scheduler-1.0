@@ -1,4 +1,6 @@
-<h1>Create New Event</h1>
+<div class="filler"></div>
+<div class="center">
+  <h1>Create New Event</h1>
 <%= form_with model: @event do |f| %>
   <%= f.label "Event Name: " %>
   <%= f.text_field :name %><br />
@@ -18,4 +20,5 @@
   <%= f.hidden_field :creator_id, :value => current_user.id %>
 
   <%= f.submit %>
+  </div>
 <% end %>

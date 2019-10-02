@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   post 'send_friend_request', to: 'users#send_friend_request', as: 'friend_request'
   post 'accept_friend_request', to: 'users#accept_friend_request', as: 'accept_request'
   post 'decline_friend_request', to: 'users#decline_friend_request', as: 'decline_request'
-
+  post 'remove_friend', to: 'users#remove_friend', as: 'remove_friend'
+  post 'leave_event', to: 'events#leave_event', as: 'leave_event'
 end
