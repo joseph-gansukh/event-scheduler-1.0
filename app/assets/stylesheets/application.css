@@ -12,6 +12,10 @@ GREY: #C0BFBF
             box-sizing: border-box;
 }
 
+body {
+    font-family: 'Barlow';
+}
+
 /****************************
 REUSABLE COMPONENTS
 ****************************/
@@ -78,13 +82,16 @@ HOME PAGE
 }
 
 .hero-text-box h1 {
+    font-family: 'Permanent Marker', cursive;
     margin-bottom: 20px;
     font-weight: 300;
+    color: #C0BFBF;
 }
 .hero-text-box h2 {
     margin-bottom: 35px;
     font-size: 100%;
     font-weight: 300;
+    color: #C0BFBF;
 }
 
 
@@ -93,16 +100,37 @@ NAVIGATION BAR
 ****************************/
 
 .logo {
+    font-family: 'Permanent Marker', cursive;
     float: left;
     font-size: 140%;
     padding: 14px 16px;
 }
 
 .logo a {
-    color: #1db954;
+    color: #C0BFBF;
     text-transform: uppercase;
     font-weight: bold;
     text-decoration: none;
+}
+
+.logo a:hover {
+    color: #004687
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.navbar {
+    z-index: 99;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 0px 3px #000;
 }
 
 .navbar li a {
@@ -110,26 +138,19 @@ NAVIGATION BAR
     text-decoration: none;
 }
 
-.navbar {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #000;
-}
-
 .navbar li {
     float: right;
     display: block;
-    color: #1db954;
+    color: #C0BFBF;
     text-align: center;
     padding: 14px 16px;
+    margin-top: 5px;
     text-decoration: none;
 }
 
 .navbar li a:visited {
     text-decoration: none;
-    color: #1db954;
+    color: #C0BFBF;
 }
 
 .navbar li a:hover {
@@ -137,46 +158,173 @@ NAVIGATION BAR
 }
 
 /****************************
-LOGIN PAGE
+LOGIN/SIGNUP PAGE
 ****************************/
 
-.login-landing {
+.join-the-fun {
     position: absolute;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 0, 0.4))), url(https://ak4.picdn.net/shutterstock/videos/4687664/thumb/1.jpg);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://ak4.picdn.net/shutterstock/videos/4687664/thumb/1.jpg);
+    border-radius: 5px;
+    padding: 30px 25px;
+    color: #C0BFBF;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 40%;
+    top: 55%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+}
+
+.join-head-text {
+    font-size: 250%;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+.join-the-fun label {
+    display: block;
+    font-size: 130%;
+    padding-bottom: 20px;
+    margin-left: 15%;
+}
+
+.join-the-fun input { 
+    background-color: rgb(0,70,135,0.4);
+    color: #C0BFBF;
+    margin-left: 15%;
+    margin-bottom: 50px;
+    padding: 5px;
+    font-size: 110%;
+    width: 70%;
+    border-radius: 2px;
+}
+
+.join-the-fun textarea { 
+    background-color: rgba(240, 240, 240, 0.4);
+    border: 1px solid #000;
+    color: #C0BFBF;
+    margin-left: 15%;
+    margin-bottom: 50px;
+    padding: 5px;
+    font-size: 110%;
+    width: 70%;
+    border-radius: 2px;
+}
+
+.join-the-fun input[type=submit] {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 130%;
+    margin-bottom: 100px;
+    display: inline-block;
+    background-color: #004687;
+    border-radius: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.join-the-fun input[type=submit]:hover {
+    background-color: #B72126;
+}
+
+/****************************
+LOGIN ONLY PAGE
+****************************/
+
+.login-background {
+    background-image: -webkit-gradient(linear-gradient(to right top, #081f67, #6d1770, #af0462, #db3244, #eb6d12));
+    background-image: linear-gradient(to right top, #081f67, #6d1770, #af0462, #db3244, #eb6d12);
     background-size: cover;
     background-position: center;
-    height: 120vh;
+    height: 100vh;
     width: 100vw;
     background-attachment: fixed;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
 
-.join-the-fun {
-    width: 40%;
-    margin: 50px auto;
-    color: #1db954;
-    text-align: center;
+#alert {
+    color: #CCFF00;
+    margin-left: 15%;
+    margin-bottom: 30px;
+}
+
+/****************************
+SIGNUP ONLY PAGE
+****************************/
+
+.signup-background {
+    background-image: -webkit-gradient(linear-gradient(to right top, #081f67, #6d1770, #af0462, #db3244, #eb6d12));
+    background-image: linear-gradient(to right top, #081f67, #6d1770, #af0462, #db3244, #eb6d12);
+    background-size: cover;
+    background-position: center;
+    height: 200vh;
+    width: 100vw;
+    background-attachment: fixed;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.join-the-fun-signup {
+    position: absolute;
+    border-radius: 5px;
+    padding: 30px 25px;
+    color: #C0BFBF;
     background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 50px;
-    box-shadow: 0px 0px 5px #1db954;
-    min-height: 400px;
+    width: 40%;
+    top: 100%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
 }
 
-.join-head-text {
-    font-size: 320%;
-    padding-top: 30px;
-    padding-bottom: 50px;
-}
-
-.join-the-fun label {
+.join-the-fun-signup label {
+    display: block;
     font-size: 130%;
     padding-bottom: 20px;
+    margin-left: 15%;
 }
 
-.join-the-fun input {
-    margin-bottom: 20px;
+.join-the-fun-signup input { 
+    background-color: rgb(0,70,135,0.4);
+    color: #C0BFBF;
+    margin-left: 15%;
+    margin-bottom: 50px;
     padding: 5px;
     font-size: 110%;
+    width: 70%;
+    border-radius: 2px;
+}
+
+.join-the-fun-signup textarea { 
+    background-color: rgb(0,70,135,0.4);
+    color: #C0BFBF;
+    margin-left: 15%;
+    margin-bottom: 50px;
+    padding: 5px;
+    font-size: 110%;
+    width: 70%;
+    border-radius: 2px;
+}
+
+.join-the-fun-signup input[type=submit] {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 130%;
+    margin-bottom: 100px;
+    display: inline-block;
+    background-color: #004687;
+    border-radius: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.join-the-fun-signup input[type=submit]:hover {
+    background-color: #B72126;
+}
+
+ul.signup-errors {
+    color: #CCFF00;
+    margin-left: 15%;
+    list-style-type: none;
+    margin-bottom: 20px;
 }
