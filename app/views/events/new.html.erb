@@ -15,5 +15,7 @@
   <%= f.label "Event Location: " %>
   <%= f.text_field :location %><br />
 
+  <%= f.hidden_field :creator_id, :value => current_user.id %>
+
   <%= f.submit %>
 <% end %>

@@ -10,6 +10,7 @@ class EventsController < ApplicationController
   
   def show
     find_event
+    find_creator
   end
 
   def create
@@ -53,11 +54,15 @@ class EventsController < ApplicationController
   private
 
   def event_params 
-    params.require(:event).permit(:name, :date, :time, :description, :location)
+    params.require(:event).permit(:name, :date, :time, :description, :location, :creator_id)
   end
 
   def find_event
     @event = Event.find(params[:id])
   end
   
+  def find_creator
+    find_event
+    @creator = User.find(@event.creator_id)
+  end
 end
