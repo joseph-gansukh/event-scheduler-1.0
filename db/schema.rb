@@ -27,11 +27,12 @@ ActiveRecord::Schema.define(version: 2019_10_01_204353) do
     t.string "friendable_type"
     t.integer "friendable_id"
     t.integer "friend_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.integer "blocker_id"
     t.integer "status"
     t.index ["friendable_id", "friend_id"], name: "index_friendships_on_friendable_id_and_friend_id", unique: true
+    t.index ["friendable_type", "friendable_id"], name: "index_friendships_on_friendable_type_and_friendable_id"
   end
 
   create_table "user_events", force: :cascade do |t|

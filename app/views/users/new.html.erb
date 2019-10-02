@@ -1,12 +1,11 @@
-<div class="login-landing">
-  <div class="join-the-fun">
+<div class="signup-background">
+  <div class="join-the-fun-signup">
     <h1 class="join-head-text">Sign Up</h1>
 
     <%= form_for @user do |f| %>
       <% if flash[:errors] %>
         <div class="error_messages">
-          <h2>Form is invalid</h2>
-          <ul>
+          <ul class="signup-errors">
             <% flash[:errors].each do |message| %>
               <li><%= message %></li>
             <% end %>
