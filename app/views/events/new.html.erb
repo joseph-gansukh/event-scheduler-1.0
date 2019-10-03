@@ -1,24 +1,39 @@
 <div class="filler"></div>
-<div class="center">
-  <h1>Create New Event</h1>
-<%= form_with model: @event do |f| %>
-  <%= f.label "Event Name: " %>
-  <%= f.text_field :name %><br />
 
-  <%= f.label "Description: " %>
-  <%= f.text_area :description %><br />
+<div class="signup-background">
+  <div class="join-the-fun-signup">
+    <h1 class="join-head-text">Create New Event</h1>
 
-  <%= f.label "Date: " %>
-  <%= f.date_field :date %><br />
+    <%= form_with model: @event do |f| %>
 
-  <%= f.label "Time: " %>
-  <%= f.time_field :time %><br />
+     <% if flash[:errors] %>
+        <div class="error_messages">
+          <ul class="signup-errors">
+            <% flash[:errors].each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <%= f.label "Event Location: " %>
-  <%= f.text_field :location %><br />
+      <%= f.label "Event Name: " %>
+      <%= f.text_field :name %><br />
 
-  <%= f.hidden_field :creator_id, :value => current_user.id %>
+      <%= f.label "Description: " %>
+      <%= f.text_area :description %><br/>
 
-  <%= f.submit %>
-  </div>
-<% end %>
+      <%= f.label "Date: " %>
+      <%= f.date_field :date %><br />
+
+      <%= f.label "Time: " %>
+      <%= f.time_field :time %><br />
+
+      <%= f.label "Event Location: " %>
+      <%= f.text_field :location %><br />
+
+      <%= f.hidden_field :creator_id, :value => current_user.id %>
+
+      <%= f.submit %>
+    <% end %>
+  </div> 
+</div>

@@ -1,27 +1,45 @@
 <div class="filler"></div>
 
-<h1>Event Name: <%= @event.name %></h1>
-
-<h4>Created by: <%= link_to @creator.name.capitalize, user_path(@creator) %></h4>
-
-<h2>Event Date and Time: <%= @event.date.strftime("%m/%d/%y") %> at <%= @event.time.strftime("%I:%M %p") %> </h2>
-
-<p>Description: <%= @event.description %></p>
-
-<p>Location: <%= @event.location %></p>
-
-<% if attending_event?(@event.id) %>
-    <p>Attending Event</p>
-    <%= button_to "Leave Event", leave_event_path, method: "post", params:{event_id: @event.id} %>
-<% else %>
-    <%= button_to "Attend Event", attend_event_path, method: "post", params:{event_id: @event.id} %>
-<% end %>
-
-<% if @event.users.count > 0 %>
-    <h4>People Going</h4>
-    <% @event.users.each do |user| %>
-        <p><%= link_to user.name, user %></p>
+<div class="event-heading">
+    <h1><%= @event.name %></h1>
+    <h2>Created by: <%= link_to @creator.name.capitalize, user_path(@creator) %></h2>
+    <%if @creator == current_user %>
+        <div class="edit-user-btn">
+            <%= link_to "Edit Event", edit_event_path %>
+        </div>
     <% end %>
-<% else %>
-    <h4>No one is going</h4>
-<% end %>
+</div>
+
+<div class="event-content-grid">
+    <div class="event-content">
+        <% if attending_event?(@event.id) %>
+            <div class="user-new-event-btn"><%= link_to "I Ain't Goin'", leave_event_path(:event_id => "#{@event.id}"), method: "post"%></div>
+            <% else %>
+            <div class="user-new-event-btn"><%= link_to "I Goin'", attend_event_path(:event_id => "#{@event.id}"), method: "post"%></div>
+        <% end %>
+        <h3><span>Location:</span> <%= @event.location %></h3>
+        <h4><span>Date:</span> <%= @event.date.strftime("%m/%d/%y") %></h4>
+        <h4><span>Time:</span> <%= @event.time.strftime("%I:%M %p") %></h4>
+        <div class="event-description">
+            <p><span>Description</span></p>
+            <hr id="two" data-symbol="âœˆ">
+            <p><%= @event.description %></p>
+        </div>
+        
+    </div>
+    <div class="attendees">
+        <% if @event.users.count > 0 %>
+            <h4 class="user-friends-heading">Who's Goin'</h4>
+            <hr id="two" data-symbol="âœˆ">
+            <% @event.users.each do |user| %>
+                <div class="friend-display">
+                    <%= link_to user.name, user %>
+                </div>
+            <% end %>
+        <% else %>
+            <div class="friend-display">
+                <p>No one is going to this event yet.</p>
+            </div>
+        <% end %>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="filler"></div>
+
+<div class="signup-background">
+  <div class="join-the-fun-signup">
+    <h1 class="join-head-text">Edit Event</h1>
+      <%= form_with model: @event do |f| %>
+        <%= f.label "Event Name: " %>
+        <%= f.text_field :name %><br />
+
+        <%= f.label "Description: " %>
+        <%= f.text_area :description %><br />
+
+        <%= f.label "Date: " %>
+        <%= f.date_field :date %><br />
+
+        <%= f.label "Time: " %>
+        <%= f.time_field :time %><br />
+
+        <%= f.label "Event Location: " %>
+        <%= f.text_field :location %><br />
+
+        <%= f.hidden_field :creator_id, :value => current_user.id %>
+
+        <%= f.submit %>
+      <% end %>
+      <%= link_to "Delete Event", event_path(@event), method: "delete", class: "delete-event-btn" %>
+  </div> 
+</div>
+

@@ -8,17 +8,24 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+    <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Barlow:300,400,700|Permanent+Marker&display=swap" rel="stylesheet">
   </head>
 
   <body class="landing">
       <div class="hero-text-box">
-          <h1>JAZ Events</h1>
+          <h1>weGoin'</h1>
           <h2>The best place to arrange events</h2>
-          <div>
+          <div class="home-btn-display">
             <div>
-              <p class="btn btn-header"><%= link_to "Log In", login_path %></p>
-              <p class="btn btn-header" id="signup-btn"><%= link_to "Sign Up", signup_path %></p>
+              <div class="btn btn-header">
+                <%= link_to "Log In", login_path %>
+              </div>
+            </div>
+            <div>
+              <div class="btn btn-header" id="signup-btn">
+                <%= link_to "Sign Up", signup_path %>
+              </div>
             </div>
           </div>
       </div>

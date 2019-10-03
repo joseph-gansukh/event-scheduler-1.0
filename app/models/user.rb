@@ -12,4 +12,8 @@ class User < ApplicationRecord
   def created_events
     Event.all.select {|event| event.creator_id == self.id}
   end
+
+  def upcoming_events
+    self.events.select {|event| event.datetime >= DateTime.now.new_offset(0)}
+  end
 end

@@ -45,6 +45,11 @@ class UsersController < ApplicationController
       end
     end
 
+    def attending_event?(event_id)
+      current_user
+      @user.events.include?(Event.find(event_id))
+    end
+
     def send_friend_request
       @user = current_user
       @user.friend_request(User.find(params[:request_id]))
