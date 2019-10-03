@@ -1,8 +1,9 @@
 /*
 COLORS:
-RED: #B72126
-BLUE: #004687
-GREY: #C0BFBF
+WHITE: #C0BFBF
+PURPLE: #620056 - rgb(98, 0, 86)
+YELLOW: #f4d03f - rgb(244, 208, 63)
+ORANGE: #f9690e - rgb(249, 105, 14)
 */
 
 * {
@@ -22,8 +23,8 @@ REUSABLE COMPONENTS
 ****************************/
 .btn, .btn a:visited {
     display: inline-block;
-    color: #000;
-    background-color: #c0bfbf;
+    color: #f4d03f;
+    border: 3px solid #f4d03f;
     border-radius: 20px;
     text-decoration: none;
     padding: 5px 15px;
@@ -38,29 +39,57 @@ REUSABLE COMPONENTS
 .btn-header {
     text-decoration: none;
     font-size: 90%;
-    transition: padding 0.4s, font-size 0.4s, background-color 0.4s;
+    transition: margin-top 0.5s, background-color 0.5s, border-color 0.5s;
 }
 
 .btn-header:hover, .btn-header:active {
     text-decoration: none;
-    background-color: #B72126;
-    padding: 10px 25px;
-    font-size: 120%;
-}
-
-#signup-btn:hover {
-    background-color: #004687;
+    background-color: #6d1770;
+    border-color: #6d1770;
+    margin-top: 10px;
 }
 
 .filler {
     height: 60px;
+    background-color: #000;
 }
 
 .center {
     text-align: center;
 }
 
+hr {
+    height: 1px;
+    background: rgb(98, 0, 86);
+    border: none;
+    outline: none;
+    margin: 10px 50px 30px;
+    position: relative;
+    
+    &:before {
+      
+      content: attr(data-symbol);
+      position: absolute;
+      top: 0;
+      left: 50%;
+      background: black;
+      color: white;
+      padding: 0.5em 3em;
+      @include transform(translate(-50%, -50%));
+      
+    }
+  }
 
+hr#two {
+    @include background-image(linear-gradient(right, black, white));
+    
+    &:before {
+      left: 90%;
+      width: 20%;
+      padding: 1em;
+      top: 1px;
+    }
+  }
 
 /****************************
 HOME PAGE
@@ -81,7 +110,7 @@ HOME PAGE
     position: absolute;
     border-radius: 2px;
     padding: 30px 25px;
-    color: #fff;
+    color: #d8d6da;
     background-color: rgba(0, 0, 0, 0.4);
     width: 100vw;
     height: 275px;
@@ -93,16 +122,23 @@ HOME PAGE
 }
 
 .hero-text-box h1 {
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Monoton', cursive;
+    font-size: 300%;
     margin-bottom: 20px;
     font-weight: 300;
-    color: #C0BFBF;
+    color: #f4d03f;
 }
 .hero-text-box h2 {
     margin-bottom: 35px;
     font-size: 100%;
     font-weight: 300;
-    color: #C0BFBF;
+}
+
+.home-btn-display {
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+    margin: 0 auto;
 }
 
 
@@ -111,21 +147,21 @@ NAVIGATION BAR
 ****************************/
 
 .logo {
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Monoton', cursive;
     float: left;
     font-size: 140%;
     padding: 14px 16px;
 }
 
 .logo a {
-    color: #C0BFBF;
+    color: #f4d03f;
     text-transform: uppercase;
     font-weight: bold;
     text-decoration: none;
 }
 
 .logo a:hover {
-    color: #004687
+    color: rgb(249, 105, 14)
 }
 
 .sticky {
@@ -134,7 +170,15 @@ NAVIGATION BAR
     width: 100%;
 }
 
-
+.navbar {
+    z-index: 99;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(98, 0, 86);
+    box-shadow: 0px 0px 3px #000;
+}
   
 .navbar li a {
     display: block;
@@ -166,9 +210,9 @@ LOGIN/SIGNUP PAGE
 
 .join-the-fun {
     position: absolute;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 30px 25px;
-    color: #C0BFBF;
+    color: #f4d03f;
     background-color: rgba(0, 0, 0, 0.4);
     width: 40%;
     top: 55%;
@@ -193,41 +237,31 @@ LOGIN/SIGNUP PAGE
 }
 
 .join-the-fun input { 
-    background-color: rgb(0,70,135,0.4);
-    color: #C0BFBF;
+    background-color: rgb(98, 0, 86, 0.4);
+    color: #f4d03f;
     margin-left: 15%;
     margin-bottom: 50px;
     padding: 5px;
     font-size: 110%;
     width: 70%;
-    border-radius: 2px;
-}
-
-.join-the-fun textarea { 
-    background-color: rgba(240, 240, 240, 0.4);
-    border: 1px solid #000;
-    color: #C0BFBF;
-    margin-left: 15%;
-    margin-bottom: 50px;
-    padding: 5px;
-    font-size: 110%;
-    width: 70%;
-    border-radius: 2px;
+    border-radius: 4px;
 }
 
 .join-the-fun input[type=submit] {
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Monoton', cursive;
     font-size: 130%;
     margin-bottom: 100px;
     display: inline-block;
-    background-color: #004687;
+    border: 3px solid #f4d03f;
     border-radius: 20px;
     text-decoration: none;
     text-transform: uppercase;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
 }
 
 .join-the-fun input[type=submit]:hover {
-    background-color: #B72126;
+    transform: scale(0.9);
 }
 
 /****************************
@@ -247,7 +281,7 @@ LOGIN ONLY PAGE
 }
 
 #alert {
-    color: #CCFF00;
+    color: #eb6d12;
     margin-left: 15%;
     margin-bottom: 30px;
 }
@@ -272,7 +306,7 @@ SIGNUP ONLY PAGE
     position: absolute;
     border-radius: 5px;
     padding: 30px 25px;
-    color: #C0BFBF;
+    color: #f4d03f;
     background-color: rgba(0, 0, 0, 0.4);
     width: 40%;
     top: 100%;
@@ -289,44 +323,47 @@ SIGNUP ONLY PAGE
 }
 
 .join-the-fun-signup input { 
-    background-color: rgb(0,70,135,0.4);
-    color: #C0BFBF;
+    background-color: rgb(98, 0, 86, 0.4);
+    color: #f4d03f;
     margin-left: 15%;
     margin-bottom: 50px;
     padding: 5px;
     font-size: 110%;
     width: 70%;
     border-radius: 2px;
+    cursor: pointer;
 }
 
 .join-the-fun-signup textarea { 
-    background-color: rgb(0,70,135,0.4);
-    color: #C0BFBF;
+    background-color: rgb(98, 0, 86, 0.4);
+    color: #f4d03f;
     margin-left: 15%;
     margin-bottom: 50px;
     padding: 5px;
     font-size: 110%;
     width: 70%;
     border-radius: 2px;
+    border: 2px solid #C0BFBF;
 }
 
 .join-the-fun-signup input[type=submit] {
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Monoton', cursive;
     font-size: 130%;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     display: inline-block;
-    background-color: #004687;
     border-radius: 20px;
     text-decoration: none;
     text-transform: uppercase;
+    border: 3px solid #f4d03f;
+    transition: all .2s ease-in-out;
 }
 
 .join-the-fun-signup input[type=submit]:hover {
-    background-color: #B72126;
+    transform: scale(0.9);
 }
 
 ul.signup-errors {
-    color: #CCFF00;
+    color: #eb6d12;
     margin-left: 15%;
     list-style-type: none;
     margin-bottom: 20px;
@@ -338,7 +375,7 @@ USER SHOW PAGE
 
 .user-heading {
     display: grid;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://media3.giphy.com/media/DZD6OikL9NHxK/source.gif);
     background-size: cover;
     min-height: 250px;
     grid-template-columns: 33% 66%;
@@ -392,46 +429,46 @@ USER SHOW PAGE
     font-size: 200%;
     font-weight: 300;
     letter-spacing: 2px;
-    color: #004687;
+    color: #6d1770;
 }
 
 .user-new-event-btn {
     display: inline;
     float: right;
     margin: 10px 25px;
-    background-color: #004687;
+    background-color: #6d1770;
     padding: 10px 35px;
     border-radius: 5px;
+    box-shadow: 0 0 2px 2px #C0BFBF;
 }
 
 .user-new-event-btn a {
     text-decoration: none;
-    color: #C0BFBF;
-    transition: margin 0.5s, font-size 0.5s;
+    color: #f4d03f;
+    transition: margin 0.5s;
 }
 
 .user-new-event-btn a:hover {
     margin-right: 20px;
-    font-size: 120%;
 }
 
 .user-all-event-btn {
     display: inline;
-    background-color: #004687;
+    background-color: #6d1770;
     padding: 10px 35px;
     margin: 10px 25px;
     border-radius: 5px;
+    box-shadow: 0 0 2px 2px #C0BFBF;
 }
 
 .user-all-event-btn a {
     text-decoration: none;
-    color: #C0BFBF;
-    transition: margin 0.5s, font-size 0.5s;
+    color: #f4d03f;
+    transition: margin 0.5s;
 }
 
 .user-all-event-btn a:hover {
     margin-left: 20px;
-    font-size: 120%;
 }
 
 .event-card {
@@ -457,6 +494,7 @@ USER SHOW PAGE
 	align-items: center;
     margin-bottom: 20px;
     letter-spacing: 2px;
+    color: #6d1770;
 }
 
 .event-card-title-item {
@@ -467,19 +505,25 @@ USER SHOW PAGE
     text-decoration: none;
     text-transform: uppercase;
     font-size: 110%;
-    color: #B72126;
+    color: #eb6d12;
 }
 
 .item-link a:hover {
-    color: #004687;
+    color: #6d1770;
 }
 
 .event-card-desc {
     margin-left: 12px;   
 }
 .card-desc {
-    color:#004687;
+    color:#6d1770;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
+}
+
+.card-text {
+    letter-spacing: 1.5px;
+    margin-top: 5px;
 }
 
 .event-card-footer {
@@ -491,6 +535,7 @@ USER SHOW PAGE
 }
 
 .edit-user-btn a {
+    font-size: 110%;
     display: inline-block;
     border-radius: 10px;
     padding: 5px 20px;
@@ -499,7 +544,7 @@ USER SHOW PAGE
 }
 
 .edit-user-btn a:hover {
-    color: #004687;
+    color: #6d1770;
     background-color: #C0BFBF;
 }
 
@@ -508,13 +553,12 @@ USER SHOW PAGE
 }
 
 .user-friends-heading {
-    border-bottom: 2px solid #000;
     text-align: center;
     letter-spacing: 2px;
     padding: 10px;
     font-size: 200%;
     font-weight: 300;
-    color: #004687;
+    color: #6d1770;
 }
 
 .user-friends {
@@ -522,27 +566,254 @@ USER SHOW PAGE
     background-image: linear-gradient(to top right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.0))
 }
 
-.user-friend {
-    list-style-type: none;
-    text-align: left;
-    margin-top: 20px
+.friend-display {
+    margin: 15px;
+    padding: 20px 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.user-friend a {
+.user-friend {
+    text-transform: uppercase;
+    font-size: 90%;
+    letter-spacing: 2px;
+    color: #eb6d12;
     text-decoration: none;
+    text-align: left;
+}
+
+.user-friend-remove {
+    display: inline;
+    float: right;
 }
 
 .center {
     margin: 0 auto;
 }
 
-.navbar {
-    z-index: 99;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.7);
-    box-shadow: 0px 0px 3px #000;
+/****************************
+EVENT SHOW PAGE
+****************************/
+
+.event-heading {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://media3.giphy.com/media/DZD6OikL9NHxK/source.gif);
+    background-size: cover;
+    min-height: 250px;
+    padding: 10px;
+    color: #C0BFBF;
+    text-align: center;
+    padding-top: 40px;
 }
 
+.event-heading h1 {
+    font-family: 'Monoton', cursive;
+    font-size: 350%;
+    letter-spacing: 3px;
+    color: #f4d03f;
+}
+
+.event-heading h2 {
+    font-size: 150%;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.event-heading h2 a {
+    text-decoration: none;
+    color: #C0BFBF;
+}
+
+.event-content-grid {
+    display: grid;
+    grid-template-columns: 66% 33%;
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+.event-content {
+    padding: 30px;
+}
+
+.event-content h3 {
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.event-content h3 span {
+    color: #6d1770;
+    font-size: 120%;
+}
+
+.event-content h4 {
+    font-weight: 300;
+    letter-spacing: 2px; 
+    margin-bottom: 10px;
+}
+
+.event-content h4:last-of-type {
+    margin-bottom: 30px;
+}
+
+.event-content h4 span {
+    color: #eb6d12;
+    font-size: 110%;
+}
+
+.event-content p {
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.event-content p span {
+    color: #6d1770;
+}
+
+.event-description {
+    background-color: #C0BFBF;
+    padding: 20px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.attendees {
+    box-shadow: -5px 0 5px #C0BFBF;
+    background-image: linear-gradient(to top right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.0))
+}
+
+/****************************
+COLLAPSIBLE VIEW
+****************************/
+.wrap-collabsible {
+    margin-bottom: 1.2rem 0;
+  }
+  
+  input[type='checkbox'] {
+    display: none;
+  }
+  
+  .lbl-toggle {
+    display: block;
+  
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-align: center;
+  
+    padding: 1rem;
+  
+    color: #A77B0E;
+    background: #f4d03f;
+  
+    cursor: pointer;
+  
+    border-radius: 7px;
+    transition: all 0.25s ease-out;
+  }
+  
+  .lbl-toggle:hover {
+    color: #7C5A0B;
+  }
+  
+  .lbl-toggle::before {
+    content: ' ';
+    display: inline-block;
+  
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid currentColor;
+    vertical-align: middle;
+    margin-right: .7rem;
+    transform: translateY(-2px);
+  
+    transition: transform .2s ease-out;
+  }
+  
+  .toggle:checked + .lbl-toggle::before {
+    transform: rotate(90deg) translateX(-3px);
+  }
+  
+  .collapsible-content {
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height .25s ease-in-out;
+  }
+  
+  .toggle:checked + .lbl-toggle + .collapsible-content {
+    max-height: 1000px;
+  }
+  
+  .toggle:checked + .lbl-toggle {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+  .collapsible-content .content-inner {
+    background: rgba(250, 224, 66, .2);
+    border-bottom: 1px solid rgba(250, 224, 66, .45);
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    padding: .5rem 1rem;
+  }
+
+
+/****************************
+OTHER
+****************************/
+
+.index-header {
+    text-align: center;
+    font-family: 'Monoton', cursive;
+    font-size: 300%;
+    color: #6d1770;
+    margin-top: 30px; 
+}
+
+.no-events-display {
+    margin: 30px 10px; 
+    color: #eb6d12;
+}
+
+.no-events-display h2 {
+    margin-bottom: 40px;
+}
+
+.no-events-display a {
+    color: #f4d03f;
+    background-color: #6d1770;
+    padding: 10px 35px;
+    border-radius: 5px;
+    box-shadow: 0 0 2px 2px #C0BFBF;
+    text-decoration: none;
+    transition: padding 0.5s;
+}
+
+.no-events-display a:hover {
+    padding-left: 55px;
+}
+
+.delete-event-btn {
+    font-family: 'Monoton', cursive;
+    font-size: 130%;
+    margin-bottom: 100px;
+    display: inline-block;
+    border-radius: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 3px solid #eb0f0f;
+    transition: all .2s ease-in-out;
+    text-align:center;
+    color: #eb0f0f;
+    margin-left: 15%;
+    padding: 5px;
+    width: 70%;
+    cursor: pointer;
+}
+
+.delete-event-btn:hover {
+    transform: scale(0.9);
+}

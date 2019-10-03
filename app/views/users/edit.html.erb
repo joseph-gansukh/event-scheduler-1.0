@@ -1,46 +1,49 @@
 <div class="filler"></div>
-<div class="center">
-<h1>Edit your profile</h1>
 
-<%= form_for @user do |f| %>
-  <% if flash[:errors] %>
-    <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% flash[:errors].each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="signup-background">
+  <div class="join-the-fun-signup">
+    <h1 class="join-head-text">Edit your profile</h1>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= form_for @user do |f| %>
+      <% if flash[:errors] %>
+        <div class="error_messages">
+          <h2>Form is invalid</h2>
+          <ul>
+            <% flash[:errors].each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.label :bio %>
+        <%= f.text_area :bio %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+      </div>
+      <br>
+      <div class="actions">
+        <%= f.submit "Edit" %>
+      </div>
+    <% end %>  
   </div>
-  <br>
-  <div class="field">
-    <%= f.label :bio %>
-    <%= f.text_area :bio %>
-  </div>
-  <br>
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-  </div>
-  <br>
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-  <br>
-  <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <br>
-  <div class="actions">
-    <%= f.submit "Edit" %>
-  </div>
-<% end %>
 </div>

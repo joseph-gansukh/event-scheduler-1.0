@@ -8,6 +8,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+    <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Barlow:300,400,700|Permanent+Marker&display=swap" rel="stylesheet">
   </head>
 
@@ -15,9 +16,9 @@
     <nav>
       <ul class="navbar sticky">
         <% if logged_in? %>
-          <p class="logo"><%= link_to "JAZ Events", current_user %></p>
+          <p class="logo"><%= link_to "WEGOIN'", current_user %></p>
         <% else %>
-          <p class="logo"><%= link_to "JAZ Events", root_path %></p>
+          <p class="logo"><%= link_to "WEGOIN'", root_path %></p>
         <% end %>
         <% if current_user %>
           <li><%= link_to "Log Out", logout_path %></li>

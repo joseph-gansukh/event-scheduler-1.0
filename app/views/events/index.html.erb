@@ -1,8 +1,9 @@
 <div class="filler"></div>
 
-<h1 class="center">All Events</h1>
+<h1 class="index-header">Are You Goin'?</h1>
 
 <% @events.each do |event| %>
+<% if event.datetime > DateTime.now.new_offset(0) %>
 <div class="user-content-grid">
   <div class="user-events">
     <div class="event-card">
@@ -19,14 +20,15 @@
             </div>
             <div class="event-card-footer">
               <% if attending_event?(event.id) %>
-                <p>Attending Event</p>
-                <%= button_to "Leave Event", leave_event_path, method: "post", params:{event_id: event.id} %>
+                <p>You sure you goin'?</p>
+                <%= button_to "I Ain't Goin'", leave_event_path, method: "post", params:{event_id: event.id} %>
                 <% else %>
-                  <%= button_to "Attend Event", attend_event_path, method: "post", params:{event_id: event.id} %>
+                  <%= button_to "I'm Goin'", attend_event_path, method: "post", params:{event_id: event.id} %>
                 <% end %>
             </div>
           </div>
       </div>
     </div>
   </div>
+  <% end %>
 <% end %>
