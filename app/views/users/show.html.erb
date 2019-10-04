@@ -2,7 +2,7 @@
 
 <div class="user-heading">
   <div class="user-heading-left">
-    <h1 class="user-name"><%= @user.name.capitalize %>'s Page</h1>
+    <h1 class="user-name"><%= @user.name.titleize %>'s Page</h1>
     <h2 class="user-email"><%= @user.email %></h2>
     <% if myself?(@user.id) && logged_in? %>
       <div class="edit-user-btn">
@@ -81,7 +81,9 @@
         <% @friends.each do |friend| %>
           <div class="friend-display">
             <%= link_to friend.name, user_path(friend), class: "user-friend" %>
-            <%= button_to "Remove Friend", remove_friend_path, method: "post", params: {request_id: friend.id}, class: "user-friend-remove" %>
+            <% if myself?(@user.id) %>
+              <%= button_to "Remove Friend", remove_friend_path, method: "post", params: {request_id: friend.id}, class: "user-friend-remove" %>
+            <% end %>
           </div>
           
         <% end %>

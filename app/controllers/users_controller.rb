@@ -39,7 +39,7 @@ class UsersController < ApplicationController
       if logged_in?
         @user = current_user
         @user.events << Event.find(params[:event_id])
-        redirect_to @user
+        redirect_to events_path
       else
         redirect_to login_path
       end
@@ -73,6 +73,24 @@ class UsersController < ApplicationController
       @user.remove_friend(User.find(params[:request_id]))
       redirect_to @user
     end
+
+    def attend_event_show
+      if logged_in?
+        @user = current_user
+        @event = Event.find(params[:event_id])
+        @user.events << @event
+        redirect_to @event
+      else
+        redirect_to login_path
+      end
+    end
+
+
+  def leave_event_show
+    @event = Event.find(params[:event_id])
+    current_user.events.delete(@event)
+    redirect_to @event
+  end
 
     private
 
