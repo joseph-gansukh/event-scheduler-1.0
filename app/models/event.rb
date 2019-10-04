@@ -10,7 +10,7 @@ class Event < ApplicationRecord
     has_many :users, through: :user_events
 
     def datetime 
-        DateTime.new(self.date.year, self.date.month, self.date.day, self.time.hour + 5, self.time.min, self.time.sec).new_offset("-05:00")
+        DateTime.new(self.date.year, self.date.month, self.date.day, self.time.hour, self.time.min, self.time.sec, self.time.zone)
     end
 
     def date_is_in_the_future

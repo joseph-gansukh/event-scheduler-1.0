@@ -53,10 +53,9 @@ class EventsController < ApplicationController
   end
 
   def leave_event
-    p params
     @event = Event.find(params[:event_id])
     current_user.events.delete(@event)
-    redirect_to current_user
+    redirect_to events_path
   end
   
   private
