@@ -1,24 +1,24 @@
-# README
+# Event Scheduler/ We Goin'
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Project Overview
 
-Things you may want to cover:
+* An app where you can create and share events with your friends
 
-* Ruby version
+# Technologies and Frameworks
 
-* System dependencies
+* Ruby on Rails
+* Developed using Rails as a fullstack framework
+* Database: mySQL
 
-* Configuration
+# Project Functionality
 
-* Database creation
+* As a user, you can create events, see all events around you, and attend events. 
+* As a user, you can also send friend requests, add or decline friend requests, and see what events your friends are attending.
 
-* Database initialization
+# Instructions for Running
 
-* How to run the test suite
+1. run bundle install 
+2. run rails server -p 3000
+3. Sign Up as an new user
+4. Sign In to be able to see all events, create events, or attend events.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
